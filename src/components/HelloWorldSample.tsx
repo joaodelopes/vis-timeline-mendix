@@ -1,6 +1,6 @@
 import { ReactElement, useRef, useEffect } from "react";
 import { Timeline, DataSet } from "vis-timeline/standalone";
-import { ListValue, ListAttributeValue } from "mendix";
+import { ListValue, ListAttributeValue, DynamicValue } from "mendix";
 import "vis-timeline/styles/vis-timeline-graph2d.min.css";
 
 export interface ItemProps {
@@ -10,6 +10,7 @@ export interface ItemProps {
     Start: ListAttributeValue<Date>;
     End: ListAttributeValue<Date>;
     Type: ListAttributeValue<string>;
+    IsSnap: DynamicValue<boolean>;
 }
 
 export function HelloWorldSample({
@@ -18,7 +19,8 @@ export function HelloWorldSample({
     ItemContent,
     Start, 
     End,
-    Type
+    Type,
+    IsSnap
 }: ItemProps): ReactElement {
     const visRef = useRef<HTMLDivElement | null>(null);
     
@@ -41,6 +43,19 @@ export function HelloWorldSample({
             }
         };
     }, []);
+
+    useEffect(() => {
+        if (timelineRef.current && IsSnap.status === "available") {
+            timelineRef.current.setOptions({
+                snap: IsSnap.value 
+                    ? (date: any) => {
+                        const hour = 60 * 60 * 1000;
+                        return Math.round(date.getTime() / hour) * hour;
+                      }
+                    : null
+            });
+        }
+    }, [IsSnap.value, IsSnap.status]); // Added status for safety
 
     // 3. Update data whenever Mendix source changes
     useEffect(() => {
@@ -65,5 +80,5 @@ export function HelloWorldSample({
 
     }, [VisItemsDataSource.items, ItemID, ItemContent, Start, End, Type]);
 
-    return <div ref={visRef} style={{ height: "400px" }} />;
+    return <div ref={visRef} />;
 }

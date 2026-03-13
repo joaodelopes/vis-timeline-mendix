@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ListValue, ListAttributeValue } from "mendix";
+import { DynamicValue, ListValue, ListAttributeValue } from "mendix";
 import { Big } from "big.js";
 
 export interface VisTimelineContainerProps {
@@ -18,6 +18,7 @@ export interface VisTimelineContainerProps {
     Start: ListAttributeValue<Date>;
     End: ListAttributeValue<Date>;
     Type: ListAttributeValue<string>;
+    IsSnap: DynamicValue<boolean>;
 }
 
 export interface VisTimelinePreviewProps {
@@ -37,4 +38,5 @@ export interface VisTimelinePreviewProps {
     Start: string;
     End: string;
     Type: string;
+    IsSnap: string;
 }

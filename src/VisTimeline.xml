@@ -49,5 +49,18 @@
                     </attributeTypes>
                 </property>
         </propertyGroup>
+         <propertyGroup caption="Options">
+            <!-- <propertyGroup caption="Main">
+            </propertyGroup>
+            <propertyGroup caption="Editability">
+            </propertyGroup> -->
+            <propertyGroup caption="Snapping">
+                <property key="IsSnap" type="expression">
+                    <caption>Apply snapping?</caption>
+                    <description />
+                    <returnType type="Boolean" />
+                </property>
+            </propertyGroup>
+        </propertyGroup>
     </properties>
 </widget>
