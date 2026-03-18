@@ -28,7 +28,7 @@ export interface ItemProps {
 
 export function HelloWorldSample(props: ItemProps): ReactElement {
     const { 
-        VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, IsSnap,
+        VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, /*IsSnap,*/
         VisGroupsDataSource, GroupIDAttr, GroupContentAttr, ItemGroupID, GroupClassName, GroupValue
     } = props;
 
@@ -39,7 +39,10 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     const itemsRef = useRef<DataSet<any>>(new DataSet());
     const groupsRef = useRef<DataSet<any>>(new DataSet());
 
-    // Initialize Timeline with Groups
+
+    // const [selectedId, setSelectedId] = useState<string | null>(null);
+
+    // Initialize Timeline 
     useEffect(() => {
         if (visRef.current && !timelineRef.current && VisGroupsDataSource.status === 'available') {
             const options = { editable: true };
@@ -47,7 +50,6 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
             // Check if we actually have groups to show
             const hasGroups = VisGroupsDataSource.items && VisGroupsDataSource.items.length > 0;
             
-            // If no groups, pass null as the 3rd argument (groups)
             hasGroups ? timelineRef.current = new Timeline(
                 visRef.current, 
                 itemsRef.current, 
@@ -66,34 +68,21 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     useEffect(() => {
         if (VisGroupsDataSource.status === "available" && VisGroupsDataSource.items) {
             const formattedGroups = VisGroupsDataSource.items.map(group => ({
-                id: GroupIDAttr.get(group).displayValue,
+                id: GroupIDAttr.get(group).value,
                 content: GroupContentAttr.get(group).value,
                 value: GroupValue.get(group).value,
                 className: GroupClassName.get(group).value
             }));
             groupsRef.current.update(formattedGroups);
         }
-    }, [VisGroupsDataSource.items, GroupIDAttr, GroupContentAttr]);
+    }, [VisGroupsDataSource.items]);
 
-    useEffect(() => {
-        if (timelineRef.current && IsSnap.status === "available") {
-            timelineRef.current.setOptions({
-                snap: IsSnap.value 
-                    ? (date: any) => {
-                        const hour = 60 * 60 * 1000;
-                        return Math.round(date.getTime() / hour) * hour;
-                      }
-                    : null
-            });
-        }
-    }, [IsSnap.status]); // Added status for safety
-
-    // Effect to Update Items (Modified to include group ID)
+    // Effect to Update Items
     useEffect(() => {
         if (VisGroupsDataSource.status === "available" && VisItemsDataSource.status === "available" && VisItemsDataSource.items) {
             const formattedItems = VisItemsDataSource.items.map(item => ({
                 id: ItemID.get(item).displayValue,
-                group: ItemGroupID.get(item).displayValue, // Link item to group
+                group: ItemGroupID.get(item).value, 
                 start: Start.get(item).value,
                 end: End.get(item).value,
                 type: Type.get(item).value,
