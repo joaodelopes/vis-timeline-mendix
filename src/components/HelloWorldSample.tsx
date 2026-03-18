@@ -26,40 +26,6 @@ export interface ItemProps {
     ItemGroupID: ListAttributeValue<any>; // Attribute on the Item entity that matches GroupID
 }
 
-
-// export interface ItemProps {
-//     // ... other props
-//     IsSnap: DynamicValue<boolean>;
-//     SnapValue: DynamicValue<Big>;     // e.g., 1, 5, 10
-//     SnapUnit: DynamicValue<string>;    // e.g., "minutes", "hours", "days", "months", "years"
-// }
-// function snapOption(date: Date, scale: string, step: number)    {
-//     const newDate = new Date(date);
-
-//     switch (unit) {
-//         case "years":
-//             const year = Math.round(newDate.getFullYear() / val) * val;
-//             return new Date(year, 0, 1).getTime();
-
-//         case "months":
-//             const month = Math.round(newDate.getMonth() / val) * val;
-//             return new Date(newDate.getFullYear(), month, 1).getTime();
-
-//         case "days":
-//             const day = Math.round(newDate.getDate() / val) * val;
-//             return new Date(newDate.getFullYear(), newDate.getMonth(), day).getTime();
-
-//         case "hours":
-//             const hourMs = val * 60 * 60 * 1000;
-//             return Math.round(newDate.getTime() / hourMs) * hourMs;
-
-//         case "minutes":
-//         default:
-//             const minMs = val * 60 * 1000;
-//             return Math.round(newDate.getTime() / minMs) * minMs;
-//     }
-// }
-
 export function HelloWorldSample(props: ItemProps): ReactElement {
     const { 
         VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, IsSnap,
@@ -93,8 +59,8 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                 options
             );
         }
-        // ... cleanup
-    }, [VisGroupsDataSource.items?.length]); // Re-init if data source existence changes
+ 
+    }, [VisGroupsDataSource.status]); // Re-init if data source existence changes
 
     // Effect to Update Groups
     useEffect(() => {
@@ -120,7 +86,7 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                     : null
             });
         }
-    }, [IsSnap.value, IsSnap.status]); // Added status for safety
+    }, [IsSnap.status]); // Added status for safety
 
     // Effect to Update Items (Modified to include group ID)
     useEffect(() => {
