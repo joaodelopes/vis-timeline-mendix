@@ -38,7 +38,7 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     const { 
         VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, /*IsSnap,*/
         VisGroupsDataSource, GroupIDAttr, GroupContentAttr, ItemGroupID, GroupClassName, GroupValue,
-        clickAction, doubleClickAction, onUpdateAction, //onAddAction, onRemoveAction/*, onInitialDrawCompleteAction*/
+        clickAction, doubleClickAction, onUpdateAction, onAddAction, onRemoveAction/*, onInitialDrawCompleteAction*/
     } = props;
 
     const visRef = useRef<HTMLDivElement | null>(null);
@@ -47,6 +47,9 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     // Stable references for both Items and Groups
     const itemsRef = useRef<DataSet<any>>(new DataSet());
     const groupsRef = useRef<DataSet<any>>(new DataSet());
+
+    // Events
+    const preventFirstEventRef = useRef(false);
 
     // Initialize Timeline 
     useEffect(() => {
@@ -121,9 +124,9 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     useEffect(() => {
         itemsRef?.current?.on("*", function(event, properties) {     
             const eventItemIds = properties.items;
+            const eventDataSet = itemsRef.current.getDataSet().get(eventItemIds);
 
             if (event === "update") {
-                const eventDataSet = itemsRef.current.getDataSet().get(eventItemIds);
                 if (eventDataSet && eventDataSet.length > 0)    {
                     if (onUpdateAction && onUpdateAction.canExecute) {
                         const jsonData = JSON.stringify(eventDataSet);
@@ -132,10 +135,21 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                 }
             }
             else if (event === "add") {
-                //action = onAddAction;
+                if (preventFirstEventRef && preventFirstEventRef.current)   {
+                    if (eventDataSet && eventDataSet.length > 0)    {
+                        if (onAddAction && onAddAction.canExecute) {
+                            const jsonData = JSON.stringify(eventDataSet);
+                            onAddAction.execute({data: jsonData});
+                        }
+                    }
+                } else {
+                    preventFirstEventRef.current = true;
+                }
             }
             else if (event === "remove") {
-                //action = onRemoveAction;
+                if (onRemoveAction && onRemoveAction.canExecute) {
+                    onRemoveAction.execute({data: eventItemIds[0] as string});
+                }
             }
         })
     }, [itemsRef])
