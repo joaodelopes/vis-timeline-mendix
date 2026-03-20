@@ -38,7 +38,7 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     const { 
         VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, /*IsSnap,*/
         VisGroupsDataSource, GroupIDAttr, GroupContentAttr, ItemGroupID, GroupClassName, GroupValue,
-        clickAction, doubleClickAction, onUpdateAction, onAddAction, onRemoveAction/*, onInitialDrawCompleteAction*/
+        clickAction, doubleClickAction, onUpdateAction, onAddAction, onRemoveAction, onInitialDrawCompleteAction
     } = props;
 
     const visRef = useRef<HTMLDivElement | null>(null);
@@ -54,7 +54,15 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     // Initialize Timeline 
     useEffect(() => {
         if (visRef.current && !timelineRef.current && VisGroupsDataSource.status === 'available') {
-            const options = { editable: true };
+            var options = { 
+                editable: true,
+                // On Initial Draw Complete
+                onInitialDrawComplete: function () {
+                    if (onInitialDrawCompleteAction && onInitialDrawCompleteAction.canExecute) {
+                        onInitialDrawCompleteAction.execute();
+                    }
+                }
+            };
             
             // Check if we actually have groups to show
             const hasGroups = VisGroupsDataSource.items && VisGroupsDataSource.items.length > 0;
@@ -118,6 +126,7 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
 
             itemsRef.current.update(formattedItems);
             timelineRef.current?.fit();
+            preventFirstEventRef.current = true;
         }
     }, [VisItemsDataSource.status, VisItemsDataSource.items?.length]);
 
@@ -142,8 +151,6 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                             onAddAction.execute({data: jsonData});
                         }
                     }
-                } else {
-                    preventFirstEventRef.current = true;
                 }
             }
             else if (event === "remove") {
