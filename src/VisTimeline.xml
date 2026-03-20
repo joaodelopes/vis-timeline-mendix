@@ -128,6 +128,31 @@
                     <actionVariable key="doubleClickedItemID" type="String" caption="Double clicked Item ID" />
                 </actionVariables>
             </property>
+            <property key="onAddAction" type="action">
+                <caption>On Add</caption>
+                <description>Action to be performed when item is added.</description>
+                <actionVariables>
+                    <actionVariable key="data" type="String" caption="Added Item Stringified JSON" />
+                </actionVariables>
+            </property>
+            <property key="onUpdateAction" type="action">
+                <caption>On Update</caption>
+                <description>Action to be performed when item is updated.</description>
+                <actionVariables>
+                    <actionVariable key="data" type="String" caption="Updated Item Stringified JSON" />
+                </actionVariables>
+            </property>
+            <property key="onRemoveAction" type="action">
+                <caption>On Remove</caption>
+                <description>Action to be performed when item is removed.</description>
+                <actionVariables>
+                    <actionVariable key="data" type="String" caption="Removed Item Stringified JSON" />
+                </actionVariables>
+            </property>
+             <property key="onInitialDrawCompleteAction" type="action">
+                <caption>On Initial Draw Complete</caption>
+                <description>Action to be performed when the timeline is drawn for the first time.</description>
+            </property>
         </propertyGroup>
     </properties>
 </widget>

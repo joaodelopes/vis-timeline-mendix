@@ -25,15 +25,20 @@ export interface ItemProps {
     // Link between Item and Group
     ItemGroupID: ListAttributeValue<any>; // Attribute on the Item entity that matches GroupID
 
+    // Event actions
     clickAction: ActionValue<{ clickedItemID: string }> | undefined;
     doubleClickAction: ActionValue<{ doubleClickedItemID: string }> | undefined;
+    onAddAction: ActionValue<{ data: string }> | undefined;
+    onUpdateAction: ActionValue<{ data: string }> | undefined;
+    onRemoveAction: ActionValue<{ data: string }> | undefined;
+    onInitialDrawCompleteAction: ActionValue | undefined;   
 }
 
 export function HelloWorldSample(props: ItemProps): ReactElement {
     const { 
         VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, /*IsSnap,*/
         VisGroupsDataSource, GroupIDAttr, GroupContentAttr, ItemGroupID, GroupClassName, GroupValue,
-        clickAction, doubleClickAction
+        clickAction, doubleClickAction, onUpdateAction, //onAddAction, onRemoveAction/*, onInitialDrawCompleteAction*/
     } = props;
 
     const visRef = useRef<HTMLDivElement | null>(null);
@@ -78,7 +83,6 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                     }
                 }
             });
-
         }
  
     }, [VisGroupsDataSource.status]); // Re-init if data source existence changes
@@ -108,10 +112,33 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                 content: ItemContent.get(item).value,
                 className: ItemClassName.get(item).value
             }));
+
             itemsRef.current.update(formattedItems);
             timelineRef.current?.fit();
         }
     }, [VisItemsDataSource.status, VisItemsDataSource.items?.length]);
+
+    useEffect(() => {
+        itemsRef?.current?.on("*", function(event, properties) {     
+            const eventItemIds = properties.items;
+
+            if (event === "update") {
+                const eventDataSet = itemsRef.current.getDataSet().get(eventItemIds);
+                if (eventDataSet && eventDataSet.length > 0)    {
+                    if (onUpdateAction && onUpdateAction.canExecute) {
+                        const jsonData = JSON.stringify(eventDataSet);
+                        onUpdateAction.execute({data: jsonData});
+                    }
+                }
+            }
+            else if (event === "add") {
+                //action = onAddAction;
+            }
+            else if (event === "remove") {
+                //action = onRemoveAction;
+            }
+        })
+    }, [itemsRef])
 
     return <div ref={visRef} />;
 }

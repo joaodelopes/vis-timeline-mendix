@@ -28,6 +28,10 @@ export interface VisTimelineContainerProps {
     IsSnap: DynamicValue<boolean>;
     clickAction?: ActionValue<{ clickedItemID: Option<string> }>;
     doubleClickAction?: ActionValue<{ doubleClickedItemID: Option<string> }>;
+    onAddAction?: ActionValue<{ data: Option<string> }>;
+    onUpdateAction?: ActionValue<{ data: Option<string> }>;
+    onRemoveAction?: ActionValue<{ data: Option<string> }>;
+    onInitialDrawCompleteAction?: ActionValue;
 }
 
 export interface VisTimelinePreviewProps {
@@ -57,4 +61,8 @@ export interface VisTimelinePreviewProps {
     IsSnap: string;
     clickAction: {} | null;
     doubleClickAction: {} | null;
+    onAddAction: {} | null;
+    onUpdateAction: {} | null;
+    onRemoveAction: {} | null;
+    onInitialDrawCompleteAction: {} | null;
 }
