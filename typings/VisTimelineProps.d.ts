@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, ListValue, Option, ListAttributeValue } from "mendix";
+import { ActionValue, DynamicValue, ListValue, Option, ListAttributeValue, ListReferenceSetValue } from "mendix";
 import { Big } from "big.js";
 
 export interface VisTimelineContainerProps {
@@ -17,6 +17,7 @@ export interface VisTimelineContainerProps {
     GroupContentAttr: ListAttributeValue<string>;
     GroupValue: ListAttributeValue<Big>;
     GroupClassName: ListAttributeValue<string>;
+    groupAssociation?: ListReferenceSetValue;
     VisItemsDataSource: ListValue;
     ItemID: ListAttributeValue<Big | string>;
     ItemGroupID: ListAttributeValue<string | Big>;
@@ -50,6 +51,7 @@ export interface VisTimelinePreviewProps {
     GroupContentAttr: string;
     GroupValue: string;
     GroupClassName: string;
+    groupAssociation: string;
     VisItemsDataSource: {} | { caption: string } | { type: string } | null;
     ItemID: string;
     ItemGroupID: string;

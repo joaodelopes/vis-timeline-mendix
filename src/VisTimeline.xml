@@ -42,6 +42,13 @@
                     <attributeType name="String" />
                 </attributeTypes>
             </property>
+            <property key="groupAssociation" type="association" selectableObjects="VisGroupsDataSource" dataSource="VisGroupsDataSource" required="false">
+                <caption>Parent (self-association)</caption>
+                <description>Reference to the child Group (can be empty)</description>
+                    <associationTypes>
+                        <associationType name="ReferenceSet"/>
+                    </associationTypes>
+            </property>
         </propertyGroup>
         <propertyGroup caption="Items">
              <property key="VisItemsDataSource" type="datasource" isList="true">

@@ -1,0 +1,48 @@
+[
+{
+    "id": 1,
+    "content": "Lee",
+    "nestedGroups": [
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 2,
+    "content": "invisible group",
+    "visible": false
+  },
+  {
+    "id": 3,
+    "content": "John",
+    "nestedGroups": [
+      14
+    ],
+    "showNested": false
+  },
+  {
+    "id": 4,
+    "content": "Alson"
+  },
+  {
+    "id": 11,
+    "content": "cook",
+    "nestedInGroup": 1
+  },
+  {
+    "id": 12,
+    "content": "shop",
+    "nestedInGroup": 1
+  },
+  {
+    "id": 13,
+    "content": "clean house",
+    "nestedInGroup": 1
+  },
+  {
+    "id": 14,
+    "content": "wash dishes",
+    "nestedInGroup": 3,
+    "visible": false
+  }]

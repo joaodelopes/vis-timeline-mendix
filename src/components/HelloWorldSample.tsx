@@ -1,6 +1,6 @@
 import { ReactElement, useRef, useEffect } from "react";
 import { Timeline, DataSet } from "vis-timeline/standalone";
-import { ListValue, ListAttributeValue, DynamicValue, ActionValue } from "mendix";
+import { ListValue, ListAttributeValue, DynamicValue, ActionValue, ListReferenceSetValue } from "mendix";
 import "vis-timeline/styles/vis-timeline-graph2d.min.css";
 
 export interface ItemProps {
@@ -24,6 +24,7 @@ export interface ItemProps {
     
     // Link between Item and Group
     ItemGroupID: ListAttributeValue<any>; // Attribute on the Item entity that matches GroupID
+    groupAssociation: ListReferenceSetValue | undefined;
 
     // Event actions
     clickAction: ActionValue<{ clickedItemID: string }> | undefined;
@@ -38,7 +39,8 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
     const { 
         VisItemsDataSource, ItemID, ItemContent, Start, End, Type, ItemClassName, /*IsSnap,*/
         VisGroupsDataSource, GroupIDAttr, GroupContentAttr, ItemGroupID, GroupClassName, GroupValue,
-        clickAction, doubleClickAction, onUpdateAction, onAddAction, onRemoveAction, onInitialDrawCompleteAction
+        clickAction, doubleClickAction, onUpdateAction, onAddAction, onRemoveAction, onInitialDrawCompleteAction,
+        groupAssociation
     } = props;
 
     const visRef = useRef<HTMLDivElement | null>(null);
@@ -105,7 +107,12 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
                 id: GroupIDAttr.get(group).value,
                 content: GroupContentAttr.get(group).value,
                 value: GroupValue.get(group).value,
-                className: GroupClassName.get(group).value
+                className: GroupClassName.get(group).value,
+                nestedGroups: groupAssociation
+                    ? groupAssociation.get(group).value?.map(nestedg =>
+                        GroupIDAttr.get(nestedg).value
+                        ) ?? []
+                    : []
             }));
             groupsRef.current.update(formattedGroups);
         }

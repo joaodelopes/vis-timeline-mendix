@@ -1,0 +1,482 @@
+[
+    {
+        "id": 0,
+        "group": 1,
+        "content": "item 0",
+        "start": "2026-03-28T22:32:09.598Z",
+        "end": "2026-03-29T00:32:09.598Z",
+        "type": "range"
+    },
+    {
+        "id": 1,
+        "group": 1,
+        "content": "item 1",
+        "start": "2026-03-21T15:10:20.728Z",
+        "end": "2026-03-21T17:10:20.728Z",
+        "type": "box"
+    },
+    {
+        "id": 2,
+        "group": 1,
+        "content": "item 2",
+        "start": "2026-03-22T16:23:54.871Z",
+        "end": "2026-03-22T18:23:54.871Z",
+        "type": "point"
+    },
+    {
+        "id": 3,
+        "group": 12,
+        "content": "item 3",
+        "start": "2026-03-20T18:22:49.361Z",
+        "end": "2026-03-20T20:22:49.361Z",
+        "type": "point"
+    },
+    {
+        "id": 4,
+        "group": 1,
+        "content": "item 4",
+        "start": "2026-03-21T08:01:05.856Z",
+        "end": "2026-03-21T10:01:05.856Z",
+        "type": "box"
+    },
+    {
+        "id": 5,
+        "group": 3,
+        "content": "item 5",
+        "start": "2026-03-28T02:40:08.774Z",
+        "end": "2026-03-28T04:40:08.774Z",
+        "type": "background"
+    },
+    {
+        "id": 6,
+        "group": 4,
+        "content": "item 6",
+        "start": "2026-03-23T23:17:01.026Z",
+        "end": "2026-03-24T01:17:01.026Z",
+        "type": "box"
+    },
+    {
+        "id": 7,
+        "group": 11,
+        "content": "item 7",
+        "start": "2026-03-24T19:15:49.541Z",
+        "end": "2026-03-24T21:15:49.541Z",
+        "type": "background"
+    },
+    {
+        "id": 8,
+        "group": 11,
+        "content": "item 8",
+        "start": "2026-03-27T07:58:51.751Z",
+        "end": "2026-03-27T09:58:51.751Z",
+        "type": "range"
+    },
+    {
+        "id": 9,
+        "group": 1,
+        "content": "item 9",
+        "start": "2026-03-22T12:44:21.357Z",
+        "end": "2026-03-22T14:44:21.357Z",
+        "type": "background"
+    },
+    {
+        "id": 10,
+        "group": 2,
+        "content": "item 10",
+        "start": "2026-03-27T04:55:56.341Z",
+        "end": "2026-03-27T06:55:56.341Z",
+        "type": "box"
+    },
+    {
+        "id": 11,
+        "group": 12,
+        "content": "item 11",
+        "start": "2026-03-21T04:20:04.804Z",
+        "end": "2026-03-21T06:20:04.804Z",
+        "type": "box"
+    },
+    {
+        "id": 12,
+        "group": 3,
+        "content": "item 12",
+        "start": "2026-03-23T04:02:34.043Z",
+        "end": "2026-03-23T06:02:34.043Z",
+        "type": "range"
+    },
+    {
+        "id": 13,
+        "group": 2,
+        "content": "item 13",
+        "start": "2026-03-28T14:12:02.648Z",
+        "end": "2026-03-28T16:12:02.648Z",
+        "type": "point"
+    },
+    {
+        "id": 14,
+        "group": 1,
+        "content": "item 14",
+        "start": "2026-03-27T20:48:05.839Z",
+        "end": "2026-03-27T22:48:05.839Z",
+        "type": "point"
+    },
+    {
+        "id": 15,
+        "group": 3,
+        "content": "item 15",
+        "start": "2026-03-21T17:34:35.070Z",
+        "end": "2026-03-21T19:34:35.070Z",
+        "type": "range"
+    },
+    {
+        "id": 16,
+        "group": 12,
+        "content": "item 16",
+        "start": "2026-03-28T23:07:34.829Z",
+        "end": "2026-03-29T01:07:34.829Z",
+        "type": "background"
+    },
+    {
+        "id": 17,
+        "group": 3,
+        "content": "item 17",
+        "start": "2026-03-21T09:32:12.888Z",
+        "end": "2026-03-21T11:32:12.888Z",
+        "type": "background"
+    },
+    {
+        "id": 18,
+        "group": 12,
+        "content": "item 18",
+        "start": "2026-03-24T18:23:20.050Z",
+        "end": "2026-03-24T20:23:20.050Z",
+        "type": "background"
+    },
+    {
+        "id": 19,
+        "group": 1,
+        "content": "item 19",
+        "start": "2026-03-24T17:36:56.979Z",
+        "end": "2026-03-24T19:36:56.979Z",
+        "type": "box"
+    },
+    {
+        "id": 20,
+        "group": 12,
+        "content": "item 20",
+        "start": "2026-03-27T15:33:41.902Z",
+        "end": "2026-03-27T17:33:41.902Z",
+        "type": "box"
+    },
+    {
+        "id": 21,
+        "group": 2,
+        "content": "item 21",
+        "start": "2026-03-23T13:40:58.491Z",
+        "end": "2026-03-23T15:40:58.491Z",
+        "type": "box"
+    },
+    {
+        "id": 22,
+        "group": 11,
+        "content": "item 22",
+        "start": "2026-03-24T11:36:55.573Z",
+        "end": "2026-03-24T13:36:55.573Z",
+        "type": "point"
+    },
+    {
+        "id": 23,
+        "group": 13,
+        "content": "item 23",
+        "start": "2026-03-24T10:23:32.404Z",
+        "end": "2026-03-24T12:23:32.404Z",
+        "type": "box"
+    },
+    {
+        "id": 24,
+        "group": 11,
+        "content": "item 24",
+        "start": "2026-03-21T23:01:06.166Z",
+        "end": "2026-03-22T01:01:06.166Z",
+        "type": "range"
+    },
+    {
+        "id": 25,
+        "group": 4,
+        "content": "item 25",
+        "start": "2026-03-24T05:34:15.302Z",
+        "end": "2026-03-24T07:34:15.302Z",
+        "type": "range"
+    },
+    {
+        "id": 26,
+        "group": 11,
+        "content": "item 26",
+        "start": "2026-03-27T02:46:49.540Z",
+        "end": "2026-03-27T04:46:49.540Z",
+        "type": "background"
+    },
+    {
+        "id": 27,
+        "group": 14,
+        "content": "item 27",
+        "start": "2026-03-24T06:12:32.982Z",
+        "end": "2026-03-24T08:12:32.982Z",
+        "type": "box"
+    },
+    {
+        "id": 28,
+        "group": 1,
+        "content": "item 28",
+        "start": "2026-03-23T23:43:43.837Z",
+        "end": "2026-03-24T01:43:43.837Z",
+        "type": "range"
+    },
+    {
+        "id": 29,
+        "group": 3,
+        "content": "item 29",
+        "start": "2026-03-22T03:11:34.465Z",
+        "end": "2026-03-22T05:11:34.465Z",
+        "type": "range"
+    },
+    {
+        "id": 30,
+        "group": 1,
+        "content": "item 30",
+        "start": "2026-03-23T06:28:19.085Z",
+        "end": "2026-03-23T08:28:19.085Z",
+        "type": "range"
+    },
+    {
+        "id": 31,
+        "group": 3,
+        "content": "item 31",
+        "start": "2026-03-25T22:10:19.371Z",
+        "end": "2026-03-26T00:10:19.371Z",
+        "type": "background"
+    },
+    {
+        "id": 32,
+        "group": 12,
+        "content": "item 32",
+        "start": "2026-03-22T19:38:54.863Z",
+        "end": "2026-03-22T21:38:54.863Z",
+        "type": "range"
+    },
+    {
+        "id": 33,
+        "group": 3,
+        "content": "item 33",
+        "start": "2026-03-22T16:44:13.708Z",
+        "end": "2026-03-22T18:44:13.708Z",
+        "type": "point"
+    },
+    {
+        "id": 34,
+        "group": 13,
+        "content": "item 34",
+        "start": "2026-03-23T03:10:49.705Z",
+        "end": "2026-03-23T05:10:49.705Z",
+        "type": "range"
+    },
+    {
+        "id": 35,
+        "group": 14,
+        "content": "item 35",
+        "start": "2026-03-23T11:03:57.554Z",
+        "end": "2026-03-23T13:03:57.554Z",
+        "type": "background"
+    },
+    {
+        "id": 36,
+        "group": 14,
+        "content": "item 36",
+        "start": "2026-03-28T11:07:51.413Z",
+        "end": "2026-03-28T13:07:51.413Z",
+        "type": "box"
+    },
+    {
+        "id": 37,
+        "group": 4,
+        "content": "item 37",
+        "start": "2026-03-28T11:38:58.954Z",
+        "end": "2026-03-28T13:38:58.954Z",
+        "type": "box"
+    },
+    {
+        "id": 38,
+        "group": 14,
+        "content": "item 38",
+        "start": "2026-03-23T19:42:09.290Z",
+        "end": "2026-03-23T21:42:09.290Z",
+        "type": "box"
+    },
+    {
+        "id": 39,
+        "group": 12,
+        "content": "item 39",
+        "start": "2026-03-27T02:48:21.615Z",
+        "end": "2026-03-27T04:48:21.615Z",
+        "type": "range"
+    },
+    {
+        "id": 40,
+        "group": 14,
+        "content": "item 40",
+        "start": "2026-03-27T03:33:54.095Z",
+        "end": "2026-03-27T05:33:54.095Z",
+        "type": "point"
+    },
+    {
+        "id": 41,
+        "group": 12,
+        "content": "item 41",
+        "start": "2026-03-23T23:28:32.451Z",
+        "end": "2026-03-24T01:28:32.451Z",
+        "type": "background"
+    },
+    {
+        "id": 42,
+        "group": 14,
+        "content": "item 42",
+        "start": "2026-03-27T15:03:52.774Z",
+        "end": "2026-03-27T17:03:52.774Z",
+        "type": "point"
+    },
+    {
+        "id": 43,
+        "group": 12,
+        "content": "item 43",
+        "start": "2026-03-25T04:22:36.052Z",
+        "end": "2026-03-25T06:22:36.052Z",
+        "type": "range"
+    },
+    {
+        "id": 44,
+        "group": 14,
+        "content": "item 44",
+        "start": "2026-03-27T04:09:11.879Z",
+        "end": "2026-03-27T06:09:11.879Z",
+        "type": "box"
+    },
+    {
+        "id": 45,
+        "group": 3,
+        "content": "item 45",
+        "start": "2026-03-28T20:46:00.572Z",
+        "end": "2026-03-28T22:46:00.572Z",
+        "type": "background"
+    },
+    {
+        "id": 46,
+        "group": 2,
+        "content": "item 46",
+        "start": "2026-03-24T08:54:13.194Z",
+        "end": "2026-03-24T10:54:13.194Z",
+        "type": "background"
+    },
+    {
+        "id": 47,
+        "group": 2,
+        "content": "item 47",
+        "start": "2026-03-24T09:49:13.359Z",
+        "end": "2026-03-24T11:49:13.359Z",
+        "type": "point"
+    },
+    {
+        "id": 48,
+        "group": 3,
+        "content": "item 48",
+        "start": "2026-03-24T09:02:59.108Z",
+        "end": "2026-03-24T11:02:59.108Z",
+        "type": "point"
+    },
+    {
+        "id": 49,
+        "group": 2,
+        "content": "item 49",
+        "start": "2026-03-25T20:09:52.413Z",
+        "end": "2026-03-25T22:09:52.413Z",
+        "type": "box"
+    },
+    {
+        "id": 50,
+        "group": 2,
+        "content": "item 50",
+        "start": "2026-03-28T04:49:24.848Z",
+        "end": "2026-03-28T06:49:24.848Z",
+        "type": "point"
+    },
+    {
+        "id": 51,
+        "group": 4,
+        "content": "item 51",
+        "start": "2026-03-23T21:28:50.012Z",
+        "end": "2026-03-23T23:28:50.012Z",
+        "type": "box"
+    },
+    {
+        "id": 52,
+        "group": 12,
+        "content": "item 52",
+        "start": "2026-03-26T10:41:43.965Z",
+        "end": "2026-03-26T12:41:43.965Z",
+        "type": "box"
+    },
+    {
+        "id": 53,
+        "group": 14,
+        "content": "item 53",
+        "start": "2026-03-24T03:39:39.018Z",
+        "end": "2026-03-24T05:39:39.018Z",
+        "type": "range"
+    },
+    {
+        "id": 54,
+        "group": 12,
+        "content": "item 54",
+        "start": "2026-03-21T18:22:25.141Z",
+        "end": "2026-03-21T20:22:25.141Z",
+        "type": "point"
+    },
+    {
+        "id": 55,
+        "group": 1,
+        "content": "item 55",
+        "start": "2026-03-21T20:39:44.032Z",
+        "end": "2026-03-21T22:39:44.032Z",
+        "type": "box"
+    },
+    {
+        "id": 56,
+        "group": 12,
+        "content": "item 56",
+        "start": "2026-03-24T00:53:05.798Z",
+        "end": "2026-03-24T02:53:05.798Z",
+        "type": "range"
+    },
+    {
+        "id": 57,
+        "group": 2,
+        "content": "item 57",
+        "start": "2026-03-25T14:12:14.101Z",
+        "end": "2026-03-25T16:12:14.101Z",
+        "type": "range"
+    },
+    {
+        "id": 58,
+        "group": 4,
+        "content": "item 58",
+        "start": "2026-03-22T12:42:41.411Z",
+        "end": "2026-03-22T14:42:41.411Z",
+        "type": "point"
+    },
+    {
+        "id": 59,
+        "group": 13,
+        "content": "item 59",
+        "start": "2026-03-28T05:31:46.956Z",
+        "end": "2026-03-28T07:31:46.956Z",
+        "type": "background"
+    }
+]
