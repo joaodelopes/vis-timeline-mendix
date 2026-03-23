@@ -9,7 +9,7 @@ export interface ItemProps {
     ItemContent: ListAttributeValue<string>;
     Start: ListAttributeValue<Date>;
     End: ListAttributeValue<Date>;
-    Type: ListAttributeValue<string>;
+    Type: ListAttributeValue<string> | undefined;
     ItemClassName: ListAttributeValue<string>;
 
     // Options
@@ -125,25 +125,6 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
         }
     }, [VisGroupsDataSource.items]);
 
-    // Effect to Update Items
-    useEffect(() => {
-        if (VisGroupsDataSource.status === "available" && VisItemsDataSource.status === "available" && VisItemsDataSource.items) {
-            const formattedItems = VisItemsDataSource.items.map(item => ({
-                id: ItemID.get(item).displayValue,
-                group: ItemGroupID.get(item).value, 
-                start: Start.get(item).value,
-                end: End.get(item).value,
-                type: Type.get(item).value,
-                content: ItemContent.get(item).value,
-                className: ItemClassName.get(item).value
-            }));
-
-            itemsRef.current.update(formattedItems);
-            timelineRef.current?.fit();
-            preventFirstEventRef.current = true;
-        }
-    }, [VisItemsDataSource.status, VisItemsDataSource.items?.length]);
-
     useEffect(() => {
         itemsRef?.current?.on("*", function(event, properties) {     
             const eventItemIds = properties.items;
@@ -174,6 +155,26 @@ export function HelloWorldSample(props: ItemProps): ReactElement {
             }
         })
     }, [itemsRef])
+
+    // Effect to Update Items
+    useEffect(() => {
+        if (VisGroupsDataSource.status === "available" && VisItemsDataSource.status === "available" && VisItemsDataSource.items) {
+            const formattedItems = VisItemsDataSource.items.map(item => ({
+                id: ItemID.get(item).displayValue,
+                group: ItemGroupID.get(item).value, 
+                start: Start.get(item).value,
+                end: End.get(item).value,
+                content: ItemContent.get(item).value,
+                className: ItemClassName.get(item).value,
+
+                ...(Type && { type: Type.get(item).value })
+            }));
+
+            itemsRef.current.update(formattedItems);
+            timelineRef.current?.fit();
+            preventFirstEventRef.current = true;
+        }
+    }, [VisItemsDataSource.status, VisItemsDataSource.items?.length]);
 
     return <div ref={visRef} />;
 }

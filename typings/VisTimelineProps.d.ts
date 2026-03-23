@@ -26,7 +26,7 @@ export interface VisTimelineContainerProps {
     ItemContent: ListAttributeValue<string>;
     Start: ListAttributeValue<Date>;
     End: ListAttributeValue<Date>;
-    Type: ListAttributeValue<string>;
+    Type?: ListAttributeValue<string>;
     ItemClassName: ListAttributeValue<string>;
     IsSnap: DynamicValue<boolean>;
     clickAction?: ActionValue<{ clickedItemID: Option<string> }>;

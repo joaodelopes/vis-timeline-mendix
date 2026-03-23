@@ -106,7 +106,7 @@
                     <attributeType name="DateTime" />
                 </attributeTypes>
             </property>
-            <property key="Type" type="attribute" dataSource="VisItemsDataSource">
+            <property key="Type" type="attribute" dataSource="VisItemsDataSource" required="false">
                 <caption>Type</caption>
                 <description />
                 <attributeTypes>
